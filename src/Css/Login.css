@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    margin: 100px ;
+}
+.main-div{
+    display: flex;
+}
+.Login{
+    width: 40%;
+}
+.Login h1, p{
+    text-align: start;
+    padding: 10px 0px;
+}
+.Login h1{
+    text-transform: uppercase;
+}
+.form {
+    display:flex;
+    justify-content: start;
+    padding: 20px 0px;
+}
+form label{
+    display: flex;
+    justify-content: start;
+    margin-bottom: 10px;
+    color: #333333;
+}
+form input{
+    width: 546px;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+input :focus-visible{
+    outline: none;
+    border: none;
+   
+}
+.forget  {
+    display: flex;
+    justify-content: end;
+    margin-right: 60px;
+    
+}
+.forget a{
+    color: #333333;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.btn {
+    display: flex;
+    justify-content: end;
+    margin-right: 60px;
+    
+}
+.btn button{
+    padding: 6px 20px;
+    background-color: #000000;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    margin-top:40px ;
+    cursor: pointer;
+}
+.created-ac{
+    display: flex;
+    justify-content: start;
+}
+.created-ac h3{
+    color: #333333;
+    font-weight: normal;
+    font-size: 17px;
+    cursor: pointer;
+}
+.popular-link h5{
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #333333;
+}
+.popular-link h6{
+    color: #333333d8;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    letter-spacing: 0.1px;
+
+
+}
