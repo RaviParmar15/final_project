@@ -6,6 +6,7 @@ import NewArrivals from '../pages/NewArrivals'
 import Sunglasses from '../pages/Sunglasses'
 import Prescription from '../pages/Prescription'
 import Login from '../pages/Login'
+import SignUp from '../pages/SignUp'
 
 const AllRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AllRoutes = () => {
             <Route path='/NewArrivals' element={<NewArrivals/>}></Route>
             <Route path='/prescription' element={<Prescription/>}></Route>
             <Route path='/Login' element={<Login/>}></Route>
+            <Route path='/Signup' element={<SignUp/>}></Route>
         </Routes>
     </div>
   )

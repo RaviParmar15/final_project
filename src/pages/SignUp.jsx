@@ -1,20 +1,23 @@
 import React from 'react'
-import "../Css/Login.css"
-import "../Css/Home.css"
-import { Link } from 'react-router-dom'
-import { BiLogoFacebook } from 'react-icons/bi'
-import { FaEnvelope, FaInstagram, FaPinterestP, FaTwitter } from 'react-icons/fa6'
-import { TfiYoutube } from 'react-icons/tfi'
+import '../Css/Login.css';
+import '../Css/Home.css';
+import { BiLogoFacebook } from 'react-icons/bi';
+import { FaEnvelope, FaInstagram, FaPinterestP, FaTwitter } from 'react-icons/fa6';
+import { TfiYoutube } from 'react-icons/tfi';
+import { Link } from 'react-router-dom';
 
-const Login = () => {
+const SignUp = () => {
   return (
     <div >
         <div className='main-div'>
         <div className='Login container'>
-            <h1>Login</h1>
-            <p>Log in with your account details.</p>
+            <h1>Create Account</h1>
             <div className='form'>
             <form>
+                <label>Name</label>
+                <br />
+                <input type="text" />
+                <br /><br />
                 <label >E-mail address</label>
                 <br />
                 <input type="email" />
@@ -28,15 +31,15 @@ const Login = () => {
             
             </div>
             <div className="forget">
-                <span><a href="">Forgot Password?</a></span>
+                {/* <span><a href="">Forgot Password?</a></span> */}
                 
             </div>
             <div className='btn'>
-                <button>Login</button>
+                <button>Signup</button>
 
                 </div>
                 <div className='created-ac'>
-                    <h3>Not a member?  CREATE AN ACCOUNT</h3>
+                    <h3>Not a member?  Already a member? LOGIN</h3>
                 </div>
         </div>
         <div className='popular-link container'>
@@ -109,4 +112,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default SignUp

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import Dropdown from 'react-bootstrap/Dropdown';
 import '../Css/NavBar.css'
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -20,16 +21,17 @@ const NavBar = () => {
       </Link>
       </div>
       <div className='nav-bars'>
-      <Link to="/Sunglasses" className='link'>Sunglasses </Link>
+      <Link to="/Sunglasses" className='link'>Sunglasses
+       </Link>
       <Link to="/Eyeglasses" className='link'>Eyeglasses </Link>
       <Link to="/NewArrivals" className='link'>New Arrivals </Link>
       <Link to="/prescription" className='link'>Prescription</Link>
-      <Link  className='link'>Promo</Link>
+      <Link  className='link' style={{color:"#e80c00"}}>Promo</Link>
       </div>
       <div className="icons">
         <Link className='search-icon'><FiSearch/></Link>
         <Link className='search-icon'><AiOutlineHeart/></Link>
-        <Link className='search-icon'><BsHandbag/></Link>
+        <Link to="Signup" className='search-icon'><BsHandbag/></Link>
         <Link to="Login" className='search-icon'><BiUser/></Link>
 
 
