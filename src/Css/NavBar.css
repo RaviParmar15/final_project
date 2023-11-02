@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-div{
+    display: flex;
+    justify-content: space-around;
+}
+.nav-bars,.icons{
+    margin: auto 0px;
+}
+.link{
+    text-decoration: none;
+    margin-right: 30px;
+    text-transform: uppercase;
+    color: #1f1f24;
+    font-size: 16px;
+    font-weight: 600;
+}
+.icons .search-icon {
+    font-size: 25px;
+    color: #333333;
+    margin-left: 15px;
+}
+.topBar{
+    background-color: #f2f2f2;
+    padding: 10px 0px;
+    border-bottom: 1px solid #6e716e0c;
+}
+.topBar .truck {
+    font-size: 25px;
+    color: #1f1f24;
+}
