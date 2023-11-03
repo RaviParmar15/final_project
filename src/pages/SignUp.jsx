@@ -1,31 +1,73 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../Css/Login.css';
 import '../Css/Home.css';
 import { BiLogoFacebook } from 'react-icons/bi';
 import { FaEnvelope, FaInstagram, FaPinterestP, FaTwitter } from 'react-icons/fa6';
 import { TfiYoutube } from 'react-icons/tfi';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { signup } from '../Redux/Action';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const SignUp = () => {
+  const [name,setName]= useState("")
+  const [email,setEmail]= useState("")
+  const [password,setPassword]= useState("")
+
+
+  const store= useSelector(store=>store)
+  const Dispatch =useDispatch()
+
+  const Handlesubmit =(e)=>{
+    e.preventDefault()
+
+    let obj={
+      name:name,
+      email:email,
+      password:password
+    }
+    // console.log(obj);
+    axios.post(`http://localhost:8000/User`,obj)
+    .then((res)=>{
+      Dispatch(signup());
+      // alert("Account Created")
+      toast.success('Account Created', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+      console.log(res.data);
+    })
+    .catch((err)=>{
+      console.log(err);
+    });
+
+  }
   return (
     <div >
         <div className='main-div'>
         <div className='Login container'>
             <h1>Create Account</h1>
             <div className='form'>
-            <form>
+            <form >
                 <label>Name</label>
                 <br />
-                <input type="text" />
+                <input type="text" onChange={(e)=>setName(e.target.value)} />
                 <br /><br />
                 <label >E-mail address</label>
                 <br />
-                <input type="email" />
+                <input type="email" onChange={(e)=>setEmail(e.target.value)} />
                 <br />
                 <br />
                 <label >Password</label>
                 <br />
-                <input type="password"/>
+                <input type="password" onChange={(e)=>setPassword(e.target.value)}/>
 
             </form>
             
@@ -35,7 +77,7 @@ const SignUp = () => {
                 
             </div>
             <div className='btn'>
-                <button>Signup</button>
+                <button onClick={Handlesubmit}>Signup</button>
 
                 </div>
                 <div className='created-ac'>
@@ -108,6 +150,7 @@ const SignUp = () => {
           </div>
         </div>
       </footer>
+      <ToastContainer />
     </div>
   )
 }

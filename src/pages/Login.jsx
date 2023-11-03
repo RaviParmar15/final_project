@@ -1,12 +1,67 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../Css/Login.css"
 import "../Css/Home.css"
 import { Link } from 'react-router-dom'
 import { BiLogoFacebook } from 'react-icons/bi'
 import { FaEnvelope, FaInstagram, FaPinterestP, FaTwitter } from 'react-icons/fa6'
 import { TfiYoutube } from 'react-icons/tfi'
+import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
+import { login } from '../Redux/Action'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+  const [email,setEmail]= useState("")
+  const [password,setPassword]= useState("")
+
+  const store= useSelector(store=>store)
+  const Dispatch =useDispatch()
+
+  const Handlesubmit =(e) => {
+    e.preventDefault()
+    console.log(email,password);
+
+    axios.get(`http://localhost:8000/User?email=${email}`)
+    .then((res)=>{
+      // console.log(res.data);
+      Dispatch(login(res.data[0]));
+      if(res.data.length>0){
+        if(res.data[0].email==email && res.data[0].password==password){
+          // alert("Login successful")
+          toast.success('Login successful', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+        }
+        else{
+          // alert("Login failed")
+          toast.error('Login failed', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+        }
+       
+      }
+      
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+
+  }
   return (
     <div >
         <div className='main-div'>
@@ -17,12 +72,12 @@ const Login = () => {
             <form>
                 <label >E-mail address</label>
                 <br />
-                <input type="email" />
+                <input type="email" onChange={(e)=>setEmail(e.target.value)} />
                 <br />
                 <br />
                 <label >Password</label>
                 <br />
-                <input type="password"/>
+                <input type="password" onChange={(e)=>setPassword(e.target.value)}/>
 
             </form>
             
@@ -32,7 +87,7 @@ const Login = () => {
                 
             </div>
             <div className='btn'>
-                <button>Login</button>
+                <button onClick={Handlesubmit}>Login</button>
 
                 </div>
                 <div className='created-ac'>
@@ -58,7 +113,7 @@ const Login = () => {
           </div>
           <div className="i-b">
             <input type="text" placeholder="Enter Your Email" />
-            <button>SIGN UP</button>
+            <button >SIGN UP</button>
           </div>
         </div>
         <p>
@@ -105,6 +160,7 @@ const Login = () => {
           </div>
         </div>
       </footer>
+      <ToastContainer />
     </div>
   )
 }
