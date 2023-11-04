@@ -8,6 +8,7 @@ import Prescription from '../pages/Prescription'
 import Login from '../pages/Login'
 import SignUp from '../pages/SignUp'
 import LoginSignup from '../pages/LoginSignup'
+import SinglePage from '../pages/SinglePage'
 
 const AllRoutes = () => {
   return (
@@ -19,7 +20,7 @@ const AllRoutes = () => {
             <Route path='/NewArrivals' element={<NewArrivals/>}></Route>
             <Route path='/prescription' element={<Prescription/>}></Route>
             <Route path='/Login' element={<LoginSignup/>}></Route>
-            {/* <Route path='/Signup' element={<SignUp/>}></Route> */}
+            <Route path='/SinglePage' element={<SinglePage/>}></Route>
         </Routes>
     </div>
   )
