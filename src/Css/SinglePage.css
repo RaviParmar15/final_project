@@ -11,6 +11,17 @@
     width: 60%;
     padding: 10px;
 }
+.swiper-button-next:after{
+    color: #33333370;
+    padding-right: 25px;
+}
+.swiper-button-prev:after{
+    color: #33333370;
+    padding-left: 25px;
+}
+.horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+    display: none;
+}
 .Content-section{
     width: 40%;
     padding: 10px;
