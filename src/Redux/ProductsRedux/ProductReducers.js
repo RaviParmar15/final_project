@@ -6,7 +6,7 @@ let intialstate={
     data:[]
 }
 
-export const ProReducers =(state=intialstate,action)=>{
+export const ProReducers =(state=intialstate,action,payload)=>{
 
     switch (action.type) {
         case LOADING:
@@ -18,6 +18,7 @@ export const ProReducers =(state=intialstate,action)=>{
                 return{
                     ...state,
                     isLoading: false,
+                    data:payload
                 }
                 case ERROR:
                     return{

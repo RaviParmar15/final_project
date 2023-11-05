@@ -1,4 +1,15 @@
 import React from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+// import './styles.css';
+
+// import required modules
+import { Pagination, Navigation } from 'swiper/modules';
 import "../Css/SinglePage.css";
 
 const SinglePage = () => {
@@ -6,7 +17,27 @@ const SinglePage = () => {
     <div >
       <div className="Single-Page pading-top">
         <div className="Slider-section">
-            <img src="https://india.ray-ban.com/media/catalog/product/cache/31cc5ad256d13496e740487cbcf523ed/8/0/8056597553049_1.jpg" alt="" />
+        <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+        <img src="https://india.ray-ban.com/media/catalog/product/cache/31cc5ad256d13496e740487cbcf523ed/8/0/8056597553049_1.jpg" alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+        <img src="https://india.ray-ban.com/media/catalog/product/cache/31cc5ad256d13496e740487cbcf523ed/8/0/8056597553049_1.jpg" alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+        <img src="https://india.ray-ban.com/media/catalog/product/cache/31cc5ad256d13496e740487cbcf523ed/8/0/8056597553049_1.jpg" alt="" />
+        </SwiperSlide>
+      </Swiper>
         </div>
         <div className="Content-section">
           <h2>Title</h2>
