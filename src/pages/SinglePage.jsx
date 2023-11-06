@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -11,8 +11,26 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 import "../Css/SinglePage.css";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const SinglePage = () => {
+
+  const [data,setData]= useState("");
+  const {id} = useParams();
+  console.log(id);
+
+  useEffect(()=>{
+    axios.get(`http://localhost:8000/Products/${id}`)
+    .then((res)=>{
+      setData(res.data)
+
+    })
+    .catch((err)=>{
+
+    });
+
+  },[]);
   return (
     <div >
       <div className="Single-Page pading-top">
@@ -29,45 +47,39 @@ const SinglePage = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-        <img src="https://india.ray-ban.com/media/catalog/product/cache/31cc5ad256d13496e740487cbcf523ed/8/0/8056597553049_1.jpg" alt="" />
+        <img src={data.img2} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-        <img src="https://india.ray-ban.com/media/catalog/product/cache/31cc5ad256d13496e740487cbcf523ed/8/0/8056597553049_1.jpg" alt="" />
+        <img src={data.img3} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-        <img src="https://india.ray-ban.com/media/catalog/product/cache/31cc5ad256d13496e740487cbcf523ed/8/0/8056597553049_1.jpg" alt="" />
+        <img src={data.img4} alt="" />
         </SwiperSlide>
       </Swiper>
         </div>
         <div className="Content-section">
-          <h2>Title</h2>
+          <h2>{data.title}</h2>
           <div className="size">
             <h5>Size :</h5>
             <div className="size-box">
-              STANDARD <br />
-              (53)
+              {data.size} <br />
+            
             </div>
           </div>
           <div className="color">
             <h4>Color :</h4>
-            <h1>Black</h1>
+            <h1>{data.color}</h1>
           </div>
           <div className="Products-details">
             <h3>PRODUCT DETAILS :</h3>
-            <h6>
-              This model brings a retro style with a bold acetate shape to a
-              junior look. From classic to contemporary, these colors recall the
-              original vibes of the time. Available in classic and gradient
-              color combinations, this new squared shape knows how to turn
-              heads.
-            </h6>
+            <h6>{data.description} </h6>
           </div>
           <div className="pyment">
             <div className="mrp">
                 <h6>MRP</h6>
             </div>
             <div className="price">
-                <h3>₹4,390.00</h3>
+                <h3>₹{data.price}</h3>
             </div>
             <div className="add-to-cart">
                 <button>Add to Bag</button>

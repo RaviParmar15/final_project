@@ -7,6 +7,7 @@ let intialstate={
 }
 
 export const ProReducers =(state=intialstate,action,payload)=>{
+    // console.log(action.payload);
 
     switch (action.type) {
         case LOADING:
@@ -18,7 +19,7 @@ export const ProReducers =(state=intialstate,action,payload)=>{
                 return{
                     ...state,
                     isLoading: false,
-                    data:payload
+                    data:action.payload
                 }
                 case ERROR:
                     return{
