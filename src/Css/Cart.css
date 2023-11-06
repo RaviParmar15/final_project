@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.cart-main {
+    width: 70%;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title h1 {
+    font-size: 40px;
+    line-height: 44px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.heading {
+    display: flex;
+    background-color: #EDEDED;
+    text-align: start;
+}
+
+.product-heading {
+    width: 50%;
+    padding: 0 50px;
+}
+
+.other-heading {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.product-detail {
+    display: flex;
+    align-items: center;
+    margin: 30px;
+}
+
+.product-detail-sub {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.product-img {
+    width: 35%;
+}
+
+.product-img-sub {
+    width: 100%;
+    padding-right: 20px;
+}
+
+.product-img-sub img {
+    width: 100%;
+}
+
+.product-name {
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+}
+
+.product-name-sub {
+    text-align: start;
+}
+
+.product-name-sub h1 {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.product-desc {
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.product-desc span {
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+}
+
+.product-remove p {
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 400;
+    color: #0c0c0c;
+}
+
+.product-other-detail {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 10px;
+}
+
+.product-qty p {
+    font-size: 20px;
+    line-height: 29px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.product-delivery p {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.product-delivery p span {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #1c8846;
+}
+
+.product-price p {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.product-other-detail p {
+    margin-left: 70px;
+}

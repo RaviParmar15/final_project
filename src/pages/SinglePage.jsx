@@ -27,10 +27,23 @@ const SinglePage = () => {
 
     })
     .catch((err)=>{
-
+      console.log(err);
     });
 
   },[]);
+
+
+  const handlecart = () => {
+    axios.post(`http://localhost:8000/cart`,data)
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
+
+
   return (
     <div >
       <div className="Single-Page pading-top">
@@ -82,7 +95,7 @@ const SinglePage = () => {
                 <h3>₹{data.price}</h3>
             </div>
             <div className="add-to-cart">
-                <button>Add to Bag</button>
+                <button onClick={handlecart}>Add to Bag</button>
             </div>
           </div>
         </div>

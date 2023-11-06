@@ -31,7 +31,7 @@ const NavBar = () => {
       <div className="icons">
         <Link  className='search-icon'><FiSearch/></Link>
         <Link className='search-icon'><AiOutlineHeart/></Link>
-        <Link to="Signup" className='search-icon'><BsHandbag/></Link>
+        <Link to="/cart" className='search-icon'><BsHandbag/></Link>
         <Link to="Login" className='search-icon'><BiUser/></Link>
 
 
