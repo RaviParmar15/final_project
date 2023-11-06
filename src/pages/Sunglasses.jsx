@@ -1,51 +1,96 @@
-import React from 'react'
-import "../Css/Sunglasses.css"
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { SunglassFetch } from '../Redux/ProductsRedux/Action'
+import React from "react";
+import "../Css/Sunglasses.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { SunglassFetch } from "../Redux/ProductsRedux/Action";
+import { Link } from "react-router-dom";
 
 const Sunglasses = () => {
+  const { data } = useSelector((store) => store.ProReducers);
 
-  const {data}= useSelector(store=>store.ProReducers)
-  console.log(data);
-  const dispatch= useDispatch()
+  const dispatch = useDispatch();
 
-  useEffect(()=>{
-    dispatch(SunglassFetch)
-
-  },[])
+  useEffect(() => {
+    dispatch(SunglassFetch);
+  },[]);
   return (
     <div>
-      {
-      //  data.map ((e)=>{
-      //   return(
-      //     <div>
-      //       <h1>{e.title}</h1>
-      //     </div>
-      //   )
-      //  })
-      }
-      <div className="products">
-        <h1 >SUNGLASSES</h1>
-        <div className='pro-box'>
-        <div className="pro-title">
-          <h1>AVIATOR REVERSE</h1>
-        </div>
-        <div className="pro-img">
-          <img src="https://india.ray-ban.com/media/catalog/product/cache/ea9bc4936e2b624aa5046f798e60eb2b/0/r/0rbr0101s_004_cb_000a.jpg" alt="" />
-        </div>
-        <div className="color-price-box">
-        <div className="pro-color">
-          <h3>colors</h3>
-        </div>
-        <div className="pro-price">
-          <h3>₹12,000.00</h3>
-        </div>
-        </div>
+      <div className="pading-50">
+        <h1 style={{ paddingBottom: "20px" }}>SUNGLASSES</h1>
+        <div className="Sunglass-main-div">
+          <div className="filter-main">
+            <div className="filter">
+              <div className="label-filter">
+                <label>Filter By:</label>
+              </div>
+            </div>
+            <div className="select-secton">
+              <select>
+                <option className="pro-d">Product Details</option>
+                <option className="category" value="">
+                  CATEGORY
+                </option>
+                <option value="">Men</option>
+                <option value="">Women</option>
+                <option value="">Kids</option>
+              </select>
+            </div>
+          </div>
+          <span className="border"></span>
+          <div className="filter-main">
+            <div className="filter">
+              <div className="label-filter">
+                <label>SORT BY:</label>
+              </div>
+            </div>
+            <div className="select-secton">
+              <select>
+                <option className="pro-d"> Top Sellers</option>
+                <option value=""> Price - Low To High</option>
+                <option value="">Price - High To Low </option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4,1fr)",
+          gap: "15px",
+          margin: "30px",
+        }}
+      >
+        {data.map((e) => {
+          return (
+            <div key={e.id}>
+              <div className="products">
+                <Link className="link" to={`./${e.id}`}>
+                  <div className="pro-box">
+                    <div className="pro-title">
+                      <h1>{e.title}</h1>
+                    </div>
+                    <div className="pro-img">
+                      <img src={e.img1} alt="" />
+                    </div>
+                    <div className="color-price-box">
+                      <div className="pro-color">
+                        <h3>colors</h3>
+                      </div>
+                      <div className="pro-price">
+                        <h3>₹{e.price}</h3>
+                      </div>
+                    </div>
+                  </div>{" "}
+                </Link>
+              </div>
+              <h1></h1>
+            </div>
+          );
+        })}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Sunglasses
+export default Sunglasses;

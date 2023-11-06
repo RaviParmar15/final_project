@@ -29,7 +29,7 @@ const NavBar = () => {
       <Link  className='link' style={{color:"#e80c00"}}>Promo</Link>
       </div>
       <div className="icons">
-        <Link to="SinglePage" className='search-icon'><FiSearch/></Link>
+        <Link  className='search-icon'><FiSearch/></Link>
         <Link className='search-icon'><AiOutlineHeart/></Link>
         <Link to="Signup" className='search-icon'><BsHandbag/></Link>
         <Link to="Login" className='search-icon'><BiUser/></Link>

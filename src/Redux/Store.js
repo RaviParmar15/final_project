@@ -5,7 +5,8 @@ import { ProReducers } from './ProductsRedux/ProductReducers'
 
 export const MainReducer= combineReducers({
     reducer,
-    ProReducers
+    ProReducers,
+    
 })
 
 
