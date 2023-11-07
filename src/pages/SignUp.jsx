@@ -33,7 +33,7 @@ const SignUp = ({ setToggle, toggle }) => {
     };
     // console.log(obj);
     axios
-      .post(`http://localhost:8000/User`, obj)
+      .post(`https://firebolt-b3qw.onrender.com/Users`, obj)
       .then((res) => {
         Dispatch(signup());
         // alert("Account Created")

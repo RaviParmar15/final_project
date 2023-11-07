@@ -28,7 +28,7 @@ const Login = ({ setToggle, toggle }) => {
     console.log(email, password);
 
     axios
-      .get(`http://localhost:8000/User?email=${email}`)
+      .get(`https://firebolt-b3qw.onrender.com/Users?email=${email}`)
       .then((res) => {
         // console.log(res.data);
         Dispatch(login(res.data[0]));

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Css/Sunglasses.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { SunglassFetch } from "../Redux/ProductsRedux/Action";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const Sunglasses = () => {
   const { data } = useSelector((store) => store.ProReducers);
@@ -13,6 +13,13 @@ const Sunglasses = () => {
   useEffect(() => {
     dispatch(SunglassFetch);
   },[]);
+
+  let [search ,setSearch] =useSearchParams();
+  let sort = search.get("sort");
+
+  if(sort== "htl"){
+    data.sort((a,c)=> a.price - c.price)
+  }
   return (
     <div>
       <div className="pading-50">
@@ -46,8 +53,8 @@ const Sunglasses = () => {
             <div className="select-secton">
               <select>
                 <option className="pro-d"> Top Sellers</option>
-                <option value=""> Price - Low To High</option>
-                <option value="">Price - High To Low </option>
+                <option value="" onClick={()=>setSearch({sort:"lth"})}> Price - Low To High</option>
+                <option value="" onClick={()=>setSearch({sort:"htl"})}>Price - High To Low </option>
               </select>
             </div>
           </div>
