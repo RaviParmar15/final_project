@@ -9,6 +9,7 @@ import Login from '../pages/Login'
 import SignUp from '../pages/SignUp'
 import LoginSignup from '../pages/LoginSignup'
 import SinglePage from '../pages/SinglePage'
+import EyeglassesSinglePage from '../pages/EyeglassesSinglePage'
 
 const AllRoutes = () => {
   return (
@@ -21,6 +22,8 @@ const AllRoutes = () => {
             <Route path='/prescription' element={<Prescription/>}></Route>
             <Route path='/Login' element={<LoginSignup/>}></Route>
             <Route path='/Sunglasses/:id' element={<SinglePage/>}></Route>
+            <Route path='/Eyeglasses/:id' element={<EyeglassesSinglePage/>}></Route>
+
         </Routes>
     </div>
   )
