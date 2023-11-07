@@ -7,6 +7,7 @@ import Sunglasses from '../pages/Sunglasses'
 import Prescription from '../pages/Prescription'
 import Login from '../pages/Login'
 import SignUp from '../pages/SignUp'
+import Cart from '../pages/Cart'
 
 const AllRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const AllRoutes = () => {
             <Route path='/prescription' element={<Prescription/>}></Route>
             <Route path='/Login' element={<Login/>}></Route>
             <Route path='/Signup' element={<SignUp/>}></Route>
+            <Route path='/Cart' element={<Cart/>}></Route>
         </Routes>
     </div>
   )
