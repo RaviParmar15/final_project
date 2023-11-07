@@ -9,6 +9,7 @@ import Login from '../pages/Login'
 import SignUp from '../pages/SignUp'
 import LoginSignup from '../pages/LoginSignup'
 import SinglePage from '../pages/SinglePage'
+import Cart from '../pages/Cart'
 import EyeglassesSinglePage from '../pages/EyeglassesSinglePage'
 
 const AllRoutes = () => {
@@ -22,6 +23,7 @@ const AllRoutes = () => {
             <Route path='/prescription' element={<Prescription/>}></Route>
             <Route path='/Login' element={<LoginSignup/>}></Route>
             <Route path='/Sunglasses/:id' element={<SinglePage/>}></Route>
+            <Route path='/cart' element={<Cart/>}></Route>
             <Route path='/Eyeglasses/:id' element={<EyeglassesSinglePage/>}></Route>
 
         </Routes>

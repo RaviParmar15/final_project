@@ -19,6 +19,30 @@ const SinglePage = () => {
   const { id } = useParams();
   console.log(id);
 
+  useEffect(()=>{
+    axios.get(`http://localhost:8000/Products/${id}`)
+    .then((res)=>{
+      setData(res.data)
+
+    })
+    .catch((err)=>{
+      console.log(err);
+    });
+
+  },[]);
+
+
+  const handlecart = () => {
+    axios.post(`http://localhost:8000/cart`,data)
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
+
+
   useEffect(() => {
     axios
       .get(`https://firebolt-b3qw.onrender.com/Product/${id}`)
@@ -78,7 +102,10 @@ const SinglePage = () => {
               <h3>₹{data.price}</h3>
             </div>
             <div className="add-to-cart">
+
+                <button onClick={handlecart}>Add to Bag</button>
               <button>Add to Bag</button>
+
             </div>
           </div>
         </div>
