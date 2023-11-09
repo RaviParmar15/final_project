@@ -1,9 +1,9 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 // import Swiper from 'swiper';
 
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -11,23 +11,34 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const EyeglassesSinglePage = () => {
-    const [data2,setData2]=useState("");
-    const {id} = useParams()
+  const [data2, setData2] = useState("");
+  const { id } = useParams();
 
-    useEffect(()=>{
-        axios.get(`https://firebolt-b3qw.onrender.com/eyeglasses/${id}`)
-        .then((res)=>{
-            setData2(res.data)
+  const handlecart = () => {
+    axios
+      .post(`http://localhost:8000/cart`, data2)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-        })
-        .catch((err)=>{
-
-        });
-
-    },[])
+  useEffect(() => {
+    axios
+      .get(`https://firebolt-b3qw.onrender.com/eyeglasses/${id}`)
+      .then((res) => {
+        setData2(res.data);
+        console.log(id);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div>
-        <div className="Single-Page pading-top">
+      <div className="Single-Page pading-top">
         <div className="Slider-section">
           <Swiper
             slidesPerView={1}
@@ -75,13 +86,13 @@ const EyeglassesSinglePage = () => {
               <h3>₹{data2.price}</h3>
             </div>
             <div className="add-to-cart">
-              <button>Add to Bag</button>
+              <button onClick={handlecart}>Add to Bag</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default EyeglassesSinglePage
+export default EyeglassesSinglePage;
