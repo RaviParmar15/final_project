@@ -4,7 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const Cart = () => {
-  let [Data,setdata] = useState("");
+  let [Data,setdata] = useState([]);
 
   let {id} = useParams();
 
@@ -22,13 +22,10 @@ const Cart = () => {
 
   return (
     <div>
-      {Data.map((ele)=>(
-        <div className="cart-main">
-        <div className="title">
-          <h1>SHOPPING CART</h1>
+       <div className="title">
+          <h1 style={{padding:"50px 0px"}}>SHOPPING CART</h1>
         </div>
-        <div className="product-main">
-          <div className="heading">
+        <div className="heading">
             <div className="product-heading">
               <p>Product details</p>
             </div>
@@ -38,28 +35,31 @@ const Cart = () => {
               <p>Price</p>
             </div>
           </div>
+      {Data.map((ele)=>(
+        <div className="cart-main">
+        <div className="product-main">
           <div className="product-detail">
             <div className="product-detail-sub">
               <div className="product-img">
                 <div className="product-img-sub">
                   <img
-                    src="https://india.ray-ban.com/media/catalog/product/cache/ea9bc4936e2b624aa5046f798e60eb2b/8/0/8056597662192_1_2.jpg"
+                    src={ele.img1}
                     alt=""
                   />
                 </div>
               </div>
               <div className="product-name">
                 <div className="product-name-sub">
-                  <h1>AVIATOR REVERSE</h1>
+                  <h1>{ele.title}</h1>
                   <div className="product-desc">
                     <h6>
-                      Size : <span>59</span>
+                      Size : <span>{ele.size}</span>
                     </h6>
                     <h6>
-                      Frame : <span>Pilot</span>
+                      Frame : <span>{ele.color}</span>
                     </h6>
                     <h6>
-                      Temple : <span>145</span>
+                      Temple : <span></span>
                     </h6>
                   </div>
                 </div>
@@ -78,7 +78,7 @@ const Cart = () => {
                 </p>
               </div>
               <div className="product-price">
-                <p>$ 12,490.00</p>
+                <p>₹ {ele.price}</p>
               </div>
             </div>
           </div>

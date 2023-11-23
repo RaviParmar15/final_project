@@ -104,7 +104,7 @@ const SinglePage = () => {
             <div className="add-to-cart">
 
                 <button onClick={handlecart}>Add to Bag</button>
-              <button>Add to Bag</button>
+              {/* <button>Add to Bag</button> */}
 
             </div>
           </div>
