@@ -20,14 +20,14 @@
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
 }
-.btn img {
+.btnn img {
   width: 17%;
 }
-.btn {
+.btnn {
   font-size: 16px;
   padding: 11px 11px;
 }
-.btn button {
+.btnn button {
   font-size: 15px;
   padding: 5px;
   font-weight: 700;
@@ -63,4 +63,71 @@
   height: 70vh;
   padding-top: 90px;
   margin-top: 50px;
+  width: 97%;
+  overflow: auto;
 }
+
+
+/* lencs section */
+.img-box-3{
+  padding-top: 90px;
+  padding-left: 25px;
+}
+.img-box-3 img{ 
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.493);
+}
+.imgbox-4 img{
+  width: 100%;
+  padding-top: 90px;
+}
+.main{
+  display: flex;
+}
+
+/* img */
+
+
+.img-box-5{
+  padding-top: 90px;
+  padding-left: 25px;
+}
+.img-box-5 img{ 
+  width: 100%;
+  overflow: hidden;
+}
+.imgbox-6 img{
+  width: 100%;
+  padding-top: 90px;
+}
+
+/* img */
+
+.img-box-7 img{ 
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.493);
+}
+.img-box-7{
+  padding-top: 90px;
+  padding-left: 25px;
+}
+.imgbox-8 img{
+  width: 100%;
+  padding-top: 90px;
+}
+
+/* Authentic colors */
+
+.color-img-box img{
+  object-fit: cover;
+  height: 70vh;
+  margin-top: 50px;
+  border: 1px solid black;
+  width: 100%;
+}
+.color-img-box{
+  padding: 25px;
+}
+
