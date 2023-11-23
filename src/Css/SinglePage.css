@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Single-Page{
+    width: 100%;
+    display: flex;
+}
+.Slider-section{
+    width: 60%;
+    padding: 10px;
+}
+.swiper-button-next:after{
+    color: #33333370;
+    padding-right: 25px;
+}
+.swiper-button-prev:after{
+    color: #33333370;
+    padding-left: 25px;
+}
+.horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+    display: none;
+}
+.Content-section{
+    width: 40%;
+    padding: 10px;
+}
+.Content-section h2{
+    text-align: start;
+}
+.size h5 {
+    margin: 15px 0px;
+    text-align: start;
+    font-size: 20px;
+    font-weight: 700;
+
+}
+.size-box{
+    width: 100px;
+    height: 50px;
+    background-color: #f2f2f299;
+    font-size: 12px;
+    padding-top: 8px;
+    color: #333333;
+    font-weight: 700;
+}
+
+.color h4{
+    text-align: start;
+    font-size: 20px;
+    padding-top: 10px;
+    font-weight: 700;
+
+}
+.color h1{
+    text-align: start;
+    color: #333333;
+    font-weight: 600;
+    padding: 15px 0px;
+    font-size: 15px;
+
+}
+.Products-details h3{
+    text-align: start;
+    text-transform: uppercase;
+}
+.Products-details h6{
+    text-align: start;
+    font-weight: normal;
+    color: #333333;
+    padding: 15px 0px;
+    font-size: 14px;
+}
+.pyment{
+    display: flex;
+    justify-content: space-between;
+    background-color: #f2f2f299;
+    padding: 20px;
+    margin-right: 50px;
+}
+.pyment .mrp h6{
+    font-size: 26px;
+    color: #333333;
+
+
+}
+.pyment .price h3{
+    font-size: 26px;
+    color: #333333;
+}
+.pyment .add-to-cart button{
+    width: 218px;
+    height: 45px;
+    padding: 10px 17px;
+    background-color: #E80C00;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    border: none;
+    font-weight: 700;
+}
