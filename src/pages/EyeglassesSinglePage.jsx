@@ -16,7 +16,7 @@ const EyeglassesSinglePage = () => {
 
   const handlecart = () => {
     axios
-      .post(`http://localhost:8000/cart`, data2)
+      .post(`https://firebolt-b3qw.onrender.com/cart`, data2)
       .then((res) => {
         console.log(res.data);
       })
@@ -36,6 +36,7 @@ const EyeglassesSinglePage = () => {
         console.log(err);
       });
   }, []);
+
   return (
     <div>
       <div className="Single-Page pading-top">

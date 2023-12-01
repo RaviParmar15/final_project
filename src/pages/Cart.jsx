@@ -10,7 +10,7 @@ const Cart = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/cart`)
+      .get(`https://firebolt-b3qw.onrender.com/cart`)
       .then((res) => {
         console.log(res.data);
         setdata(res.data);
