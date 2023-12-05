@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 const Cart = () => {
   let [Data,setdata] = useState([]);
-
   let {id} = useParams();
 
   useEffect(() => {
