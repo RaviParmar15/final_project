@@ -1,10 +1,13 @@
 import axios from "axios"
 import { ERROR, LOADING, SUCCESS } from "./ActionType";
 
-export const SunglassFetch = (dispatch) => {
+export const SunglassFetch = (filter)=> (dispatch) => {
+    console.log(filter)
     dispatch({ type: LOADING })
-    axios.get("https://firebolt-b3qw.onrender.com/Product")
+    if(filter){
+    axios.get(`https://firebolt-b3qw.onrender.com/Product?category=${filter}`)
         .then((res) => {
+            console.log(res.data)
             dispatch({ type: SUCCESS, payload: res.data })
 
         })
@@ -14,10 +17,25 @@ export const SunglassFetch = (dispatch) => {
 
 
         });
+    }else{
+        axios.get(`https://firebolt-b3qw.onrender.com/Product`)
+        .then((res) => {
+            console.log(res.data)
+            dispatch({ type: SUCCESS, payload: res.data })
+
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch({ type: ERROR })
+
+
+        });
+    }
 }
-export const EyeglassesFetch=(dispatch)=>{
+export const EyeglassesFetch= (filter)=>(dispatch)=>{
     dispatch({ type: LOADING })
-    axios.get(" https://firebolt-b3qw.onrender.com/eyeglasses")
+    if(filter){
+    axios.get(`https://firebolt-b3qw.onrender.com/eyeglasses?category=${filter}`)
     .then((res) => {
         // console.log(res.data);
         dispatch({ type: SUCCESS, payload: res.data })
@@ -27,4 +45,16 @@ export const EyeglassesFetch=(dispatch)=>{
         dispatch({ type: ERROR })
 
     });
+}else{
+    axios.get(`https://firebolt-b3qw.onrender.com/eyeglasses`)
+    .then((res) => {
+        // console.log(res.data);
+        dispatch({ type: SUCCESS, payload: res.data })
+
+    })
+    .catch((err) => {
+        dispatch({ type: ERROR })
+
+    });
+}
 }

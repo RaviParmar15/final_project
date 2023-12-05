@@ -6,20 +6,27 @@ import { SunglassFetch } from "../Redux/ProductsRedux/Action";
 import { Link, useSearchParams } from "react-router-dom";
 
 const Sunglasses = () => {
-  const { data } = useSelector((store) => store.ProReducers);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(SunglassFetch);
-  },[]);
-
+  var { data } = useSelector((store) => store.ProReducers);
   let [search ,setSearch] =useSearchParams();
-  let sort = search.get("sort");
+  const dispatch = useDispatch();
+ 
+  let filter = search.get("category");
+  useEffect(() => {
+    dispatch(SunglassFetch(filter));
+    
+  },[search]);
 
-  if(sort== "htl"){
-    data.sort((a,c)=> a.price - c.price)
+
+  const handleChange = (e)=>{
+    setSearch({sort : e.target.value})
   }
+  const handleCategory = (e)=>{
+    setSearch({category : e.target.value})
+  }
+  let sort = search.get("sort");
+  // console.log(sort)
+  
+  
   return (
     <div>
       <div className="pading-50">
@@ -32,14 +39,14 @@ const Sunglasses = () => {
               </div>
             </div>
             <div className="select-secton">
-              <select>
+              <select onChange={handleCategory}>
                 <option className="pro-d">Product Details</option>
                 <option className="category" value="">
                   CATEGORY
                 </option>
-                <option value="">Men</option>
-                <option value="">Women</option>
-                <option value="">Kids</option>
+                <option value="men">Men</option>
+                <option value="women">Women</option>
+                <option value="kids">Kids</option>
               </select>
             </div>
           </div>
@@ -51,10 +58,10 @@ const Sunglasses = () => {
               </div>
             </div>
             <div className="select-secton">
-              <select>
+              <select onChange={handleChange}>
                 <option className="pro-d"> Top Sellers</option>
-                <option value="" onClick={()=>setSearch({sort:"lth"})}> Price - Low To High</option>
-                <option value="" onClick={()=>setSearch({sort:"htl"})}>Price - High To Low </option>
+                <option value="lth" > Price - Low To High</option>
+                <option value="htl" >Price - High To Low </option>
               </select>
             </div>
           </div>

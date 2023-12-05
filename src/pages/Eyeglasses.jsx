@@ -3,17 +3,26 @@ import "../Css/Sunglasses.css";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { EyeglassesFetch } from '../Redux/ProductsRedux/Action';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const Eyeglasses = () => {
   const {data } = useSelector((store) => store.ProReducers);
+  let [search ,setSearch] =useSearchParams();
+
   console.log(data);
 
   const dispatch = useDispatch();
+  let filter = search.get("category");
+
 
   useEffect(() => {
-    dispatch(EyeglassesFetch);
-  },[]);
+    dispatch(EyeglassesFetch(filter));
+  },[search]);
+
+  const Handalefilter =(e)=>{
+    setSearch({category : e.target.value})
+
+  }
   return (
     <div>
        <div className="pading-50">
@@ -26,14 +35,14 @@ const Eyeglasses = () => {
               </div>
             </div>
             <div className="select-secton">
-              <select>
+              <select onChange={Handalefilter}>
                 <option className="pro-d">Product Details</option>
                 <option className="category" value="">
                   CATEGORY
                 </option>
-                <option value="">Men</option>
-                <option value="">Women</option>
-                <option value="">Kids</option>
+                <option value="men">Men</option>
+                <option value="women">Women</option>
+                <option value="kids">Kids</option>
               </select>
             </div>
           </div>
